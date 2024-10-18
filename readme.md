@@ -1,84 +1,88 @@
 # DataHarvest
 
-DataHarvest 是一个专为构建大型语言模型数据集而设计的工具集。它提供了一系列的数据获取、清洗和处理的pipeline，旨在为中文大模型提供高质量的训练数据。
+DataHarvest is a toolkit specifically designed for building datasets for large language models. It provides a series of pipelines for data acquisition, cleaning, and processing, aiming to deliver high-quality training data for Chinese large language models.
 
-## 特性
+## Features
 
-- **数据获取**: 从多种来源自动获取数据，包括网站、API、文档等。
-- **数据清洗**: 清洗和预处理数据，去除噪声、重复和无关内容。
-- **数据转换**: 将数据转换为适合训练的格式，如文本、序列等。
-- **自定义pipeline**: 灵活的pipeline配置，允许用户根据需要定制数据处理流程。
+- **Data Acquisition**: Automatically fetch data from various sources, including websites, APIs, documents, and more.
+- **Data Cleaning**: Clean and preprocess data by removing noise, duplicates, and irrelevant content.
+- **Data Transformation**: Convert data into formats suitable for training, such as text, sequences, etc.
+- **Customizable Pipelines**: Flexible pipeline configurations allow users to customize data processing workflows as needed.
 
-## 安装
+## Installation
 
-1. 克隆仓库：
+1. Clone the repository:
 
     ```bash
     git clone https://github.com/yourusername/dataharvest.git
     ```
 
-2. 安装依赖：
+2. Install the dependencies:
 
     ```bash
     pip install -r requirements.txt
     ```
 
-## 使用方法
+## Usage
 
-### 数据获取
+### Data Acquisition
 
 ```python
 from dataharvest import data_fetcher
 
-# 获取数据
+# Fetch data
 data = data_fetcher.fetch_data(source='web', url='https://example.com')
 
-# 保存数据
+# Save the data
 data.to_csv('data.csv')
 ```
 
-### 数据清洗
+### Data Cleaning
 
 ```python
 from dataharvest import data_cleaner
 
-# 加载数据
+# Load data
 data = data_cleaner.load_data('data.csv')
 
-# 清洗数据
+# Clean the data
 clean_data = data_cleaner.clean(data)
 
-# 保存清洗后的数据
+# Save the cleaned data
 clean_data.to_csv('clean_data.csv')
 ```
 
-### 构建pipeline
+### Building a Pipeline
 
 ```python
 from dataharvest import Pipeline
 
-# 初始化pipeline
+# Initialize the pipeline
 pipeline = Pipeline([
     ('fetch', data_fetcher.fetch_data),
     ('clean', data_cleaner.clean),
-    ('transform', lambda x: x)  # 添加其他转换函数
+    ('transform', lambda x: x)  # Add additional transformation functions
 ])
 
-# 执行pipeline
+# Execute the pipeline
 processed_data = pipeline.execute(source='web', url='https://example.com')
 
-# 保存处理后的数据
+# Save the processed data
 processed_data.to_csv('processed_data.csv')
 ```
 
-## 贡献
+## Contributions
 
-如果您有任何建议或希望为项目做出贡献，请随时提出 issue 或发送 pull request。我们欢迎任何形式的贡献！
+If you have any suggestions or would like to contribute to the project, feel free to submit an issue or send a pull request. We welcome all forms of contributions!
 
-## 许可证
+## License
 
-本项目采用 MIT 许可证。详细信息请参阅 [LICENSE](LICENSE) 文件。
+This project is licensed under the MIT License. For more details, please refer to the [LICENSE](LICENSE) file.
 
 ---
 
-希望 DataHarvest 能够帮助您构建高质量的中文语言模型数据集！如果您有任何问题或建议，请随时联系我们。
+We hope DataHarvest helps you build high-quality Chinese language model datasets! If you have any questions or suggestions, feel free to reach out to us.
+
+---
+
+Let me know if you'd like any adjustments!
